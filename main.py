@@ -1,9 +1,10 @@
 from faker import Faker
 import file_operations
 import random
-
+import os
 
 def main():
+    os.makedirs("cards",exist_ok=True)
     letters = {
         "а": "а͠",
         "б": "б̋",
@@ -111,7 +112,7 @@ def main():
             "skill_2": runic_skills[1],
             "skill_3": runic_skills[2],
         }
-
+        
         file_operations.render_template(
             "charsheet.svg", f"cards/result{card}.svg", context
         )
